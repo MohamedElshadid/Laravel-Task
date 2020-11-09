@@ -17,10 +17,12 @@ class CreateSalariesTable extends Migration
             $table->id();
             $table->string('month');
             $table->integer('salaries_day')->default(30);
+            $table->unsignedBigInteger('user_id');
             $table->integer('bonus_day')->default(15);
             $table->string('salary_total');
             $table->string('bonus_total')->default(10);
             $table->string('payment_total');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

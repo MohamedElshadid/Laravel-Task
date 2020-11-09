@@ -44,4 +44,7 @@ class User extends Authenticatable
     {
         $this->attributes['password'] = bcrypt($value);
     }
+    public function salary(){
+        return $this->hasOne('App\Models\Salary');
+    }
 }
